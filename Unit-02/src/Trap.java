@@ -6,9 +6,14 @@
 
 public class Trap
 {
-	public static double area( double base1, double base2, double height )
+	public static double area( int base1, int base2, int height )
 	{
-		double a = ((base1 + base2)/2)*height;
+		
+		double base1d = base1;
+		double base2d = base2;
+		double heightd = height;
+		
+		double a = ((base1d + base2d)/2)*heightd;
 		
 		return a;
 	}
