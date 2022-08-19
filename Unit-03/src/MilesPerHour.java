@@ -37,7 +37,6 @@ public class MilesPerHour
 
 	public void print()
 	{
-		System.out.println(mph);
 	}
 	
 	//create a print or toString or both
