@@ -21,5 +21,6 @@ public class Discount
 			bill = 0.85 * bill;
 		}
 		return bill;
+		
 	}
 }
