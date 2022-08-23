@@ -15,16 +15,14 @@ public class StringRunner
 	{
 		Scanner keyboard = new Scanner(System.in);
 		
-		out.print("	 Enter a word :: ");
+		out.print("Enter a word :: ");
 		String str = keyboard.next();
 		
 		StringOddOrEven test = new StringOddOrEven(str);
-		if (test.isEven() == true) {
-			System.out.println("yes");
-		}
-		else {
-			System.out.println("no");
+		
+		System.out.println(test);
+		
+		
 		}
 		
 	}
-}
