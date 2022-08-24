@@ -22,6 +22,6 @@ public class AddSubMult
 		
 		
 		
-		return c;
+		return Math.floor(c*1000)/1000;
 	}
 }
