@@ -34,12 +34,25 @@ public class Word
 
 	public String getBackWards()
 	{
+		
 		String back="";
+		
+		for (int i = 0; i<word.length();i++) {
+			
+			back = back + word.charAt(word.length()-1-i);
+//			System.out.println("test");
+			
+		}
+		
+		
+		
+		
+		
 		return back;
 	}
 
  	public String toString()
  	{
- 		return "" + getFirstChar() + "\n" + getLastChar();
+ 		return getFirstChar() + "\n" + getLastChar() + "\n" + getBackWards() + "\n" + word;
 	}
 }
