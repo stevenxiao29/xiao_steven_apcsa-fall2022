@@ -41,7 +41,7 @@ public class LetterRemover
 					
 			if(sentence.charAt(i)=='a') {
 				cleaned = sentence.replace("a","");
-						
+				
 			}
 					
 		}
