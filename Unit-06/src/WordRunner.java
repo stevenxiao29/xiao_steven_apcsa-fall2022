@@ -11,6 +11,8 @@ public class WordRunner
 		Word test = new Word("UIL");
 		System.out.println(test);
 		
+		System.out.println();
+		
 		//add test cases
 		
 		Word test2 = new Word("Hello");
