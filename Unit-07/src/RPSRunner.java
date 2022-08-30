@@ -18,8 +18,9 @@ public class RPSRunner
 		
 			out.print("type in your prompt [R,P,S] :: ");
 			
-			//read in the player value
-		
+				//read in the player value
+		//use while loop response a == response b 
+			
 			RockPaperScissors game = new RockPaperScissors();		
 	}
 }

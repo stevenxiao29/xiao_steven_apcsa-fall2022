@@ -27,7 +27,7 @@ public class TriangleOne
 		for (int i = 0; i<word.length(); i++) {
 			
 			System.out.println(word.substring(0,word.length()-i));
-			
+				
 			
 		}
 	}
