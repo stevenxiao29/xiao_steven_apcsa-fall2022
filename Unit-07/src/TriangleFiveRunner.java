@@ -9,7 +9,7 @@ public class TriangleFiveRunner
    public static void main(String args[])
    {
 	   
-	   TriangleFive test = new TriangleFive('C',5);
+	   TriangleFive test = new TriangleFive('A',8);
 	   System.out.println(test);
 	   
 	   

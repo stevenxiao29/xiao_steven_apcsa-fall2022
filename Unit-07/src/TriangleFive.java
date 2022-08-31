@@ -33,8 +33,12 @@ public class TriangleFive
 	{
 		String output = "";
 		String finalOut = "";
+		int finalAmount = 0;
+		int subtractBy = 0;
 		
-		
+		for (int b = 0; b<amount; b++) {
+			finalAmount += amount - b +1;
+		}
 			
 		for(int j = 0; j<amount; j++) {
 			
@@ -46,15 +50,15 @@ public class TriangleFive
 			letter += 1;
 		
 		}
-		for (int q =0; q<amount;q++) {
-			finalOut += output.substring(0,amount-q) + "\n";
-			
+		for (int q =1; q<amount+1;q++) {
+			subtractBy += q;
+			finalOut += output.substring(0,finalAmount-(subtractBy)) + "\n";			
 			
 		}	
 		
 	//	output += "\n";
 // print yx print y-1 x-1   print y-2 x-2
 	
-		return output;
+		return finalOut;
 	}
 }
