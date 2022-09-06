@@ -15,15 +15,7 @@ public class RockPaperScissors
 	public RockPaperScissors()
 	{
 		setPlayers(" ");
-		compChoice = (int) (Math.random()*3);
 		
-		if (compChoice == 0) {
-			cChoiceText = "R";
-		}else if (compChoice == 1) {
-			cChoiceText = "P";
-		}else if (compChoice == 0) {
-			cChoiceText = "S";
-		}
 	}
 
 	public RockPaperScissors(String player)
@@ -39,33 +31,46 @@ public class RockPaperScissors
 	public String determineWinner()
 	{
 		String winner="";
+		compChoice = (int) (Math.random()*3);
 		
-
+		
+		if (compChoice == 0) {
+			cChoiceText = "R";
+		}else if (compChoice == 1) {
+			cChoiceText = "P";
+		}else if (compChoice == 2) {
+			cChoiceText = "S";
+		}
 //		0=R
 //		1=P
 //		2=S
 		
-		if ((playChoice == "R" && compChoice == 1)||(playChoice == "S" && compChoice == 0)||(playChoice == "P" && compChoice == 2)) {
-			winner = "win";
-		}else {
-			
-		}
+		if (playChoice.equals("R") && compChoice == 2) {winner = "player";}
+		else if (playChoice.equals("P") && compChoice == 0) {winner = "player";}
+		else if (playChoice.equals("S") && compChoice == 1) {winner = "player";}
+		else if (playChoice.equals("R") && compChoice == 1) {winner = "comp";}
+		else if (playChoice.equals("P") && compChoice == 2) {winner = "comp";}
+		else if (playChoice.equals("S") && compChoice == 0) {winner = "comp";}
+		else if (playChoice.equals("R") && compChoice == 0) {winner = "tie";}
+		else if (playChoice.equals("P") && compChoice == 1) {winner = "tie";}
+		else if (playChoice.equals("S") && compChoice == 2) {winner = "tie";}
 		
-
 		return winner;
 	}
 
 	public String toString()
 	{
-		String output= "";
+		String output= "fritata";
 
-		if (determineWinner().equals("win")) {
+		if (determineWinner().equals("player")) {
 			output= "You win!!! \n" + playChoice + " beats " + cChoiceText ;
 		}
+		else if (determineWinner().equals("comp")){
+			output = "you lost :( \n" + cChoiceText + " beats " + playChoice;	
+		}		
 		else {
-			output = "you lost unfortunately " + cChoiceText + " beats " + playChoice;
-			
+			output = "you tied" ;	
 		}
-		return output;
+		return output + " " + compChoice;
 	}
 }

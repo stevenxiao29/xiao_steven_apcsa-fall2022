@@ -43,7 +43,7 @@ public class Triples
 			
 			for (int j = 0 ; j<max; j++) {
 				tester = i^2 + j^2;
-				if (tester.floor()==tester) {}
+			
 				
 				
 			}

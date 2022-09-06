@@ -47,8 +47,14 @@ public class TriangleFive
 			}
 			
 			output += " ";
-			letter += 1;
-		
+			
+			
+			if (letter != 90) {
+				letter += 1;
+			}
+			else {
+				letter = 65;
+			}
 		}
 		for (int q =1; q<amount+1;q++) {
 			subtractBy += q;
