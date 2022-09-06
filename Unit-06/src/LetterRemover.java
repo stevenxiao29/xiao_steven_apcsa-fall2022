@@ -1,16 +1,14 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
-
 import static java.lang.System.*;
 
 public class LetterRemover
 {
    private String sentence;
    private char lookFor;
+  
 
 	public LetterRemover()
 	{
+		setRemover(" ", ' ');
 		//call set
 	}
 	
@@ -27,20 +25,15 @@ public class LetterRemover
 		sentence = s;
 		lookFor = rem;
 		
-		
-		
 	}
 
 	public String removeLetters()
 	{
-		
-		String cleaned=sentence;
-
-		
+		String cleaned = "";
 		for(int i = 0; i<sentence.length();i++) {
 					
-			if(sentence.charAt(i)=='a') {
-				cleaned = sentence.replace("a","");
+			if(sentence.charAt(i)!=lookFor) {
+				cleaned += sentence.charAt(i);
 				
 			}
 					
