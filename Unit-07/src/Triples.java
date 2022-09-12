@@ -1,13 +1,9 @@
-//(c) A+ Computer Science
-// www.apluscompsci.com
-//Name -  
-
 import static java.lang.System.*;
 
 public class Triples
 {
    private int number;
-   private int max;
+
    
 //   Use nested loops to generate all of the Pythagorean triples from 1 up to a provided number.   
 //   For three numbers to be a triple, they have to satisfy several requirements.  
@@ -20,81 +16,86 @@ public class Triples
    //nested for to generate second 
 	public Triples()
 	{
-		this(0);
+		number = 0;
 	}
 
 	public Triples(int num)
 	{
-		max = num;
-
+		setNum( num);
 	}
 
 	
 	public void setNum(int num)
 	{
-
-			
+		number = num;
+				
 	}
 	
-	public int pythag() {
+	public String findTriples() {
 		
-		int tester =0 ;
-		for (int i = 0; i<max; i++) {
-			
-			for (int j = 0 ; j<max; j++) {
-				tester = i^2 + j^2;
-			
-				
-				
+		String trip = "";
+		
+		for (int i = 1; i<= number ; i ++) {
+			for(int j = i+1; j<=number ; j++) {
+				for (int k = j+1; k<=number; k++) {
+					if((i*i) + (j*j) == (k*k)) {
+						if((i%2==0 && j%2==1 )||(i%2==1 && j%2==0)) {
+						//	System.out.println(i + " " + j + " " + k);
+							if(greatestCommonFactor(i, j, k) == 1) {
+								trip += i + " " + j + " " + k + " \n";
+							}
+						}
+					}
+				}
 			}
-			
 		}
 		
-		return 12;
+		return trip;
+		
 		
 	}
 	
 	private int greatestCommonFactor(int a, int b, int c)
 	{
-		int max = 0;
+		int min = 0;
+		int gcf =1 ;
 		
 		
+		if (a < b && a < c) {
+			
+			min = a;
+			
+		}else if (b < a && b < c) {
+			
+			min = b;
+			
+		}else {
+			min = c;
+		}
 		
-//		if (a > b && a > c) {
-//			
-//			max = a;
-//			
-//		}else if (b > a && b > c) {
-//			
-//			max = b;
-//			
-//		}else {
-//			max = c;
-//		}
-//		
-//		
-//		for (int i = 0; i<=max; i++) {
-//			
-//			if (a % i==0) {
-//				
-//				int gcf = i;	
-//				
-//			}
+		
+		for (int i = 1; i<=min; i++) {
+			
+			if (a % i==0 && b % i==0 && c % i==0) {
+				
+				 gcf = i;	
+				
+			}
 			
 			
 			
-	//	}
+		}
 
 
-		return 1;
+		return gcf;
 	}
 
+	
 	public String toString()
 	{
-		String output="";
+		return findTriples();
 
 
 
-		return output+"\n";
 	}
 }

@@ -1,7 +1,3 @@
-//(c) A+ Computer Science
-// www.apluscompsci.com
-//Name -  
-
 import java.util.Scanner;
 import static java.lang.System.*;
 
@@ -17,7 +13,7 @@ public class RPSRunner
 		do {
 			String player = "";
 		
-			out.print("type in your prompt [R,P,S] :: ");
+			out.print("Rock-Paper-Scissors - pick your weapon[R,P,S]:: ");
 			response = keyboard.next();
 				//read in the player value
 		//use while loop response a == response b 
@@ -33,11 +29,10 @@ public class RPSRunner
 			}
 			else if (flagResp.equals("N")) {
 				cont = false;
+				break;
 			}
 			
 		} while (cont == true);
 	}
 }
-
-
 
