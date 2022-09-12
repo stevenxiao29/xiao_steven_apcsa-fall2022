@@ -31,6 +31,8 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		Card(ranks,suits,values);
+		shuffle();
 	}
 
 
@@ -40,6 +42,12 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (deck.length == 0) {
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 
 	/**
