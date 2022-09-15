@@ -61,8 +61,22 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[52];
+		int k = 0;
+		
+		for (int j = 0; j<25 ; j++) {
+			shuffled[k] = cards[j];
+			k = k+2;
+		}
+		
+		k = 1;
+		for (int j = 26; j<51 ; j++) {
+			shuffled[k] = cards[j];
+			k = k+2;
+		}
+		
 	}
-
+	
 	/**
 	 * Apply an "efficient selection shuffle" to the argument.
 	 * The selection shuffle algorithm conceptually maintains two sequences
@@ -76,5 +90,13 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[52];
+		int j = 0;
+		
+		for (int i = 0; i<52 ; i++){
+			j = (int) (Math.random()*51);
+			shuffled[i] = cards[j];
+		}
+		
 	}
 }
