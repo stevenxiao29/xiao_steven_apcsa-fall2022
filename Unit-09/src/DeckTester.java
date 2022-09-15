@@ -9,5 +9,6 @@ public class DeckTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		System.out.println(new Deck(new String[] {"1", "2", "3", "4", "5"}, new String[] {"Clubs", "Diamond", "Spades", "Hearts"}, new int[]{1,2,3,4,5}));
 	}
 }
