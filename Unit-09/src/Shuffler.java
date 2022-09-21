@@ -41,6 +41,14 @@ public class Shuffler {
 		for (int i = 0; i < values2.length; i++) {
 			values2[i] = i;
 			}
+		
+		
+		System.out.print("before shuffle: ");
+		printArray(values2);
+		System.out.println("======================== ");
+		
+		
+		
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
@@ -61,19 +69,28 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] shuffled = new int[52];
+		int[] shuffled = new int[values.length];
 		int k = 0;
 		
-		for (int j = 0; j<25 ; j++) {
-			shuffled[k] = cards[j];
+		for (int j = 0; j<values.length/2 ; j++) {
+			shuffled[k] = values[j];
 			k = k+2;
+			
 		}
 		
 		k = 1;
-		for (int j = 26; j<51 ; j++) {
-			shuffled[k] = cards[j];
+		for (int j = values.length/2; j<values.length ; j++) {
+			shuffled[k] = values[j];
 			k = k+2;
 		}
+		
+		for (int j = 0; j<shuffled.length ; j++) {
+			
+//			System.out.println(shuffled[j]);
+			values[j] = shuffled[j];
+		}
+		
+		
 		
 	}
 	
@@ -90,13 +107,52 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] shuffled = new int[52];
+		int[] shuffled = new int[values.length];
 		int j = 0;
+		int[] repeat = new int[values.length];
 		
-		for (int i = 0; i<52 ; i++){
-			j = (int) (Math.random()*51);
-			shuffled[i] = cards[j];
+		// init repeat array with value -1 to start
+		for (int q = 0; q<repeat.length ; q++) {
+			//	System.out.println(shuffled[j]);
+			repeat[q] = -1;
 		}
 		
+		for (int i = 0; i<values.length ; i++){
+			
+			j = (int) (Math.random()*values.length);
+			System.out.println("j: " + j);
+			
+			for(int x = 0 ; x<values.length; x++) {
+				System.out.println("    repeat[x] " + x + " - " + repeat[x]);
+
+				while (repeat[x] == j) {
+					j  = (int) (Math.random()*values.length);
+				}
+				repeat[i] = j;
+				break;
+				
+			}
+			shuffled[i] = values[j];
+			System.out.print("shuffled: " );
+			printArray(shuffled);
+			System.out.print("repeat: " );
+			printArray(repeat);
+			
+		}
+
+		// copy shuttled value back to original values	
+		for (int q = 0; q<shuffled.length ; q++) {
+			//	System.out.println(shuffled[j]);
+			values[q] = shuffled[q];
+		}
 	}
-}
+	
+	private static void printArray(int[] intArray) {
+		for (int q = 0; q<intArray.length ; q++) {
+			System.out.print(intArray[q] + ",");			
+		}
+		System.out.println();
+	}
+	
+	
+}	

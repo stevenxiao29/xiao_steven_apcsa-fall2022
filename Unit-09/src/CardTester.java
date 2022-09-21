@@ -1,6 +1,3 @@
-/**
- * This is a class that tests the Card class.
- */
 public class CardTester {
 
 	/**
@@ -14,6 +11,8 @@ public class CardTester {
 		Card test3 = new Card("king", "clubs", 6);
 		
 		System.out.println(test);
+		System.out.println(test2);
+		System.out.println(test3);
 		
 	}
 }
