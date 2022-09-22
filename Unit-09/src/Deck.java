@@ -40,6 +40,9 @@ public class Deck {
 				cards[ranks.length*j+i] = new Card(ranks[i], suits[j], values[i]);
 			}
 		}
+		System.out.println("something");
+		System.out.println(toString());
+		System.out.println("something  21111232");
 		shuffle();
 	}
 
@@ -73,7 +76,6 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		
 		Card[] shuffled = new Card[size];
 		int j = 0;
 		int[] repeat = new int[size];
@@ -84,26 +86,26 @@ public class Deck {
 			repeat[q] = -1;
 		}
 		
-		for (int i = 0; i<cards.length ; i++){
+		for (int i = 0; i<size ; i++){
 			
-			j = (int) (Math.random()*cards.length);
-			System.out.println("j: " + j);
+			j = (int) (Math.random()*size);
+	//		System.out.println("j: " + j);
 			
-			for(int x = 0 ; x<cards.length; x++) {
+			for(int x = 0 ; x<size; x++) {
 				System.out.println("    repeat[x] " + x + " - " + repeat[x]);
 
 				while (repeat[x] == j) {
-					j  = (int) (Math.random()*cards.length);
+					j  = (int) (Math.random()*size);
 				}
 				repeat[i] = j;
 				break;
 				
 			}
 			shuffled[i] = cards[j];
-			System.out.print("shuffled: " );
-			printArray(shuffled);
-			System.out.print("repeat: " );
-			printArray(repeat);
+		//	System.out.print("shuffled: " );
+			//printArray(shuffled);
+			//System.out.print("repeat: " );
+		//	printArray(repeat);
 			
 		}
 
@@ -113,18 +115,6 @@ public class Deck {
 			cards[q] = shuffled[q];
 		}
 	}
-
-	private void printArray(Card[] shuffled) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private void printArray(int[] repeat) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	/**
 	 * Deals a card from this deck.
