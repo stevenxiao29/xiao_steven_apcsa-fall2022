@@ -12,7 +12,7 @@ public class DeckTester {
 		Deck d = new Deck(new String[] {"1", "2", "3", "4", "5"}, new String[] {"Clubs", "Diamond", "Spades", "Hearts"}, new int[]{1,2,3,4,5});
 		System.out.println(d);
 		
-		d.deal();
-		System.out.println(d);
+	//	d.deal();
+	
 	}
 }
