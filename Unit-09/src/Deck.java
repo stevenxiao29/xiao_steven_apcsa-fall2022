@@ -40,6 +40,9 @@ public class Deck {
 				cards[ranks.length*j+i] = new Card(ranks[i], suits[j], values[i]);
 			}
 		}
+		System.out.println("something");
+		System.out.println(toString());
+		System.out.println("something  21111232");
 		shuffle();
 	}
 
@@ -73,6 +76,44 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Card[] shuffled = new Card[size];
+		int j = 0;
+		int[] repeat = new int[size];
+		
+		// init repeat array with value -1 to start
+		for (int q = 0; q<repeat.length ; q++) {
+			//	System.out.println(shuffled[j]);
+			repeat[q] = -1;
+		}
+		
+		for (int i = 0; i<size ; i++){
+			
+			j = (int) (Math.random()*size);
+	//		System.out.println("j: " + j);
+			
+			for(int x = 0 ; x<size; x++) {
+				System.out.println("    repeat[x] " + x + " - " + repeat[x]);
+
+				while (repeat[x] == j) {
+					j  = (int) (Math.random()*size);
+				}
+				repeat[i] = j;
+				break;
+				
+			}
+			shuffled[i] = cards[j];
+		//	System.out.print("shuffled: " );
+			//printArray(shuffled);
+			//System.out.print("repeat: " );
+		//	printArray(repeat);
+			
+		}
+
+		// copy shuttled value back to original values	
+		for (int q = 0; q<shuffled.length ; q++) {
+			//	System.out.println(shuffled[j]);
+			cards[q] = shuffled[q];
+		}
 	}
 
 	/**
