@@ -11,7 +11,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private Card[] cards;
+	private ArrayList <Card> cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -33,11 +33,12 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		size = ranks.length * suits.length;
 		
-		cards = new Card[size];
+		cards = new ArrayList<Card>();
+		
 		
 		for(int i=0; i<ranks.length; i++) {
 			for(int j=0; j<suits.length; j++) {
-				cards[ranks.length*j+i] = new Card(ranks[i], suits[j], values[i]);
+				cards.add(new Card(ranks[i], suits[j], values[i])) ;
 			}
 		}
 		System.out.println("something");
@@ -101,7 +102,7 @@ public class Deck {
 				break;
 				
 			}
-			shuffled[i] = cards[j];
+			shuffled[i] = cards.get(j);
 		//	System.out.print("shuffled: " );
 			//printArray(shuffled);
 			//System.out.print("repeat: " );
@@ -112,7 +113,7 @@ public class Deck {
 		// copy shuttled value back to original values	
 		for (int q = 0; q<shuffled.length ; q++) {
 			//	System.out.println(shuffled[j]);
-			cards[q] = shuffled[q];
+			cards.set(q,shuffled[q]);
 		}
 	}
 
@@ -123,7 +124,7 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		Card a = cards[size-1];
+		Card a = cards.get(size-1);
 		size--;
 		
 		return a;
@@ -139,7 +140,7 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -150,12 +151,14 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.length - 1; k >= size; k--) {
-			rtn = rtn + cards[k];
+		
+		for (int k = cards.size() - 1; k >= 0; k--) {
+			rtn = rtn + cards.get(k);
+						
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.length) % 2 == 0) {
+			if ((k - cards.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
