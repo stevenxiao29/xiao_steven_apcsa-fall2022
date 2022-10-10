@@ -24,8 +24,11 @@ public class ToyStore
   			
   			//if existing toyList does not have t in it then add
   			//other, set new toy count ++
-  			
-  			toyList.add(t);
+  			for (int j = 0 ; j<strSplit.length; j++)
+  			{
+  	  			if (!t.equals(toyList.get(j)))
+  	  				toyList.add(t);
+  			}
   		}
 
 	}

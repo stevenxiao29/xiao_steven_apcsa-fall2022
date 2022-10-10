@@ -7,8 +7,7 @@ public class ToyStoreRunner
 {
 	public static void main( String args[] )
 	{
-		ArrayList testList = new ArrayList<String>();
-		ToyStore test = new ArrayList<String>();
+		String test = new String("sorry bat sorry sorry sorry train train teddy teddy ball ball");
 	}
 
 }
