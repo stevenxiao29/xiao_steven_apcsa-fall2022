@@ -1,77 +1,110 @@
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
-import static java.lang.System.*;
+import static java.lang.System.*; 
 
-public class ToyStore
+class Rational implements Comparable<Rational>
 {
-	private ArrayList<Toy> toyList;
-
-	public ToyStore()
+	//add two instance variables
+	private int denom = 0;
+	private int numer = 0;
+	//write two constructors
+	
+	public Rational()
 	{
-		toyList = new ArrayList<Toy>() ; 
-	}
-
-	public void loadToys( String toys )
-	{
-        String[] strSplit = toys.split(" "); 
-        
-  		for (int i = 0 ; i<strSplit.length; i++)
-  		{
-  			
-  			Toy t = new Toy(strSplit[i]);
-  			
-  			//if existing toyList does not have t in it then add
-  			//other, set new toy count ++
-  			
-  			toyList.add(t);
-  		}
+		int denom = 1;
+		int numer = 1;
 
 	}
-  
-  	public Toy getThatToy( String nm )
-  	{
-  		Toy t = new Toy(nm);
-  		return t;
-  	}
-  
-  	public Toy getMostFrequentToy()
-  	{
-  		int count = 0;
-  		int newCount = 0;
-  		int finalIndex = -1;
-  		
-  		for (int i = 0 ; i<toyList.size(); i++)
-  		{
-  			for (int j = 0 ; j<toyList.size(); j++) {
-  				if (toyList.get(i)==toyList.get(j))
-  					newCount++;
-  			}
-  			if (newCount > count) {
-  				finalIndex = i;
-  				count = newCount;
-  			}
-  			
-  		}
-  		
-  		return toyList.get(finalIndex);
-  		
-  	}  
-  
-  	public void sortToysByCount()
-  	{
-  	}  
-  	  
-	public String toString()
+	public Rational(int a, int b)
 	{
-		String out = "";
+		int numer = a;
+		int denom = b;
+	}
+
+	//write a setRational method
+	
+	public void setRational(int a, int b)
+	{
+		int numer = a;
+		int denom = b;
+	}
+	//write  a set method for numerator and denominator
+	
+	public int getNum()
+	{
+		return numer;
+	}
+	public int getDenom()
+	{
+		return denom;
+	}
+	
+	public void add(Rational  other)
+	{
+		//num1/den1 + num2/den2 
+		//new numerator = (num1 * den2 + num2 * den1)
+		//new denominator = (den1 * den2)
 		
-		for (int i = 0; i<toyList.size(); i++)
+		numer = (numer * other.getDenom() + other.getNum()*denom);
+		denom = denom * other.getDenom();
+	
+
+		reduce();
+	}
+
+	private void reduce()
+	{
+		temp = gcd(numer, denom);
+		numer /= temp;
+		denom /= temp;
+
+	}
+
+	private int gcd(int numOne, int numTwo)
+	{
+		
+		int gcd = 1;
+		
+		for (int i = 0; i<numOne; i++)
 		{
-			out += toyList.get(i).getName() + " " + toyList.get(i).getCount() + ", ";
+			
+			for(int j = 0; j<numTwo; j++)
+			{
+				(if numOne % i == 0 && numTwo % j == 0 && j==i){
+					gcd = i;
+				}
+			}
 		}
-		
-	   return "[" + out + "]" + "\n" + "max = " + getMostFrequentToy();
+		return gcd;
 	}
+
+	public Object clone ()
+	{
+		return "";
+	}
+
+
+	//ACCESSORS
+
+	//write get methods for numerator and denominator
+	
+	
+	public boolean equals( Object obj)
+	{
+
+		
+		return false;
+	}
+
+	public int compareTo(Rational other)
+	{
+
+		
+		return -1;
+	}
+
+
+
+	
+	//write  toString() method
+	
+	
 }
