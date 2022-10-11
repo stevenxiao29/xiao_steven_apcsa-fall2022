@@ -29,7 +29,7 @@ public class Toy
 	
 	public String getName()
 	{
-		return null;
+		return name;
 	}
 	
 	public void setName( String nm )
