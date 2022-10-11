@@ -17,16 +17,36 @@ public class ToyStore
 	{
         String[] strSplit = toys.split(" "); 
         
+       
+        
   		for (int i = 0 ; i<strSplit.length; i++)
   		{
-  			
+  			boolean flag = true;
   			Toy t = new Toy(strSplit[i]);
+  				
+  				if(toyList.size()!=0)
+  				{
+	  				for (int j = 0 ; j<toyList.size(); j++) {
+	  					if (toyList.get(j).getName().equals(strSplit[i])) {
+	  						toyList.get(j).setCount(toyList.get(j).getCount()+1);
+	  						flag = false;
+	  						break;
+	  						
+	  					}
+	  					
+	  				}
+  				}
+	  				if (flag != false)
+	  				{
+	  					toyList.add(t);
+	  				}
   			
   			//if existing toyList does not have t in it then add
   			//other, set new toy count ++
   			
-  			toyList.add(t);
+  			
   		}
+  		
 
 	}
   
@@ -39,19 +59,14 @@ public class ToyStore
   	public Toy getMostFrequentToy()
   	{
   		int count = 0;
-  		int newCount = 0;
-  		int finalIndex = -1;
+  		int finalIndex = 0;
   		
   		for (int i = 0 ; i<toyList.size(); i++)
   		{
-  			for (int j = 0 ; j<toyList.size(); j++) {
-  				if (toyList.get(i)==toyList.get(j))
-  					newCount++;
-  			}
-  			if (newCount > count) {
+  	
+  			if (toyList.get(i).getCount() > count) {
   				finalIndex = i;
-  				count = newCount;
-  			}
+  				count = toyList.get(i).getCount();  			}
   			
   		}
   		
