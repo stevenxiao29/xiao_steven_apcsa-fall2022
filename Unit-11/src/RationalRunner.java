@@ -9,7 +9,7 @@ public class RationalRunner
 	public static void main( String args[] )
 	{
 		/*uncomment once Rational class is built
-		 *
+		 */
 		Rational test = new Rational();
 		out.println("test = " + test);
 
