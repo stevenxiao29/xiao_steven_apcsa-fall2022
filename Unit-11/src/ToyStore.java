@@ -10,66 +10,63 @@ public class ToyStore
 
 	public ToyStore()
 	{
-<<<<<<< Updated upstream
 		toyList = new ArrayList<Toy>() ; 
-=======
-		toyList = newArrayList<Toy>();
->>>>>>> Stashed changes
 	}
 
 	public void loadToys( String toys )
 	{
-<<<<<<< Updated upstream
         String[] strSplit = toys.split(" "); 
+        
+       
         
   		for (int i = 0 ; i<strSplit.length; i++)
   		{
-  			
+  			boolean flag = true;
   			Toy t = new Toy(strSplit[i]);
+  				
+  				if(toyList.size()!=0)
+  				{
+	  				for (int j = 0 ; j<toyList.size(); j++) {
+	  					if (toyList.get(j).getName().equals(strSplit[i])) {
+	  						toyList.get(j).setCount(toyList.get(j).getCount()+1);
+	  						flag = false;
+	  						break;
+	  						
+	  					}
+	  					
+	  				}
+  				}
+	  				if (flag != false)
+	  				{
+	  					toyList.add(t);
+	  				}
   			
   			//if existing toyList does not have t in it then add
   			//other, set new toy count ++
-  			for (int j = 0 ; j<strSplit.length; j++)
-  			{
-  	  			if (!t.equals(toyList.get(j)))
-  	  				toyList.add(t);
-  			}
+  			
+  			
   		}
+  		
 
-=======
-		//if toys is not there, add toys, if not null get count 
-		//else set count to get count
->>>>>>> Stashed changes
 	}
   
   	public Toy getThatToy( String nm )
   	{
-<<<<<<< Updated upstream
   		Toy t = new Toy(nm);
   		return t;
-=======
-  		
-  		
-  		return null;
->>>>>>> Stashed changes
   	}
   
   	public Toy getMostFrequentToy()
   	{
   		int count = 0;
-  		int newCount = 0;
-  		int finalIndex = -1;
+  		int finalIndex = 0;
   		
   		for (int i = 0 ; i<toyList.size(); i++)
   		{
-  			for (int j = 0 ; j<toyList.size(); j++) {
-  				if (toyList.get(i)==toyList.get(j))
-  					newCount++;
-  			}
-  			if (newCount > count) {
+  	
+  			if (toyList.get(i).getCount() > count) {
   				finalIndex = i;
-  				count = newCount;
-  			}
+  				count = toyList.get(i).getCount();  			}
   			
   		}
   		

@@ -9,22 +9,22 @@ class Rational implements Comparable<Rational>
 	
 	public Rational()
 	{
-		int denom = 1;
-		int numer = 1;
+		denom = 1;
+		numer = 1;
 
 	}
 	public Rational(int a, int b)
 	{
-		int numer = a;
-		int denom = b;
+		numer = a;
+		denom = b;
 	}
 
 	//write a setRational method
 	
 	public void setRational(int a, int b)
 	{
-		int numer = a;
-		int denom = b;
+		numer = a;
+		denom = b;
 	}
 	//write  a set method for numerator and denominator
 	
@@ -52,7 +52,7 @@ class Rational implements Comparable<Rational>
 
 	private void reduce()
 	{
-		temp = gcd(numer, denom);
+		int temp = gcd(numer, denom);
 		numer /= temp;
 		denom /= temp;
 
@@ -63,12 +63,12 @@ class Rational implements Comparable<Rational>
 		
 		int gcd = 1;
 		
-		for (int i = 0; i<numOne; i++)
+		for (int i = 1; i<numOne+1; i++)
 		{
 			
-			for(int j = 0; j<numTwo; j++)
+			for(int j = 1; j<numTwo+1; j++)
 			{
-				(if numOne % i == 0 && numTwo % j == 0 && j==i){
+				if(numOne % i == 0 && numTwo % j == 0 && j==i){
 					gcd = i;
 				}
 			}
@@ -78,7 +78,8 @@ class Rational implements Comparable<Rational>
 
 	public Object clone ()
 	{
-		return "";
+		Rational farty = new Rational(numer, denom);
+		return farty;
 	}
 
 
@@ -89,6 +90,10 @@ class Rational implements Comparable<Rational>
 	
 	public boolean equals( Object obj)
 	{
+		Rational fart = (Rational)  obj;
+		
+		if (fart.getNum()*denom == numer * fart.getDenom())
+			return true;
 
 		
 		return false;
@@ -97,14 +102,22 @@ class Rational implements Comparable<Rational>
 	public int compareTo(Rational other)
 	{
 
+		if (this.equals(other)) {
+			return 0;
+		}
 		
+		if(other.getNum()*denom < numer * other.getDenom())
+			return 1;
 		return -1;
+		
 	}
 
 
 
 	
 	//write  toString() method
-	
+	public String toString () {
+		return numer + "/" + denom;
+	}
 	
 }
