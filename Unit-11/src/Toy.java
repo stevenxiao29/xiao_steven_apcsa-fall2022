@@ -7,14 +7,24 @@ public class Toy
 
 	public Toy()
 	{
+<<<<<<< Updated upstream
 		name = "";
 		count = 0;
+=======
+		name = "toy";
+		count = 1;
+>>>>>>> Stashed changes
 	}
 
 	public Toy( String nm )
 	{
+<<<<<<< Updated upstream
 		setName(  nm );
 		setCount(1);
+=======
+		setName(nm);
+		count =1;
+>>>>>>> Stashed changes
 	}
 	
 	public int getCount()
@@ -29,7 +39,7 @@ public class Toy
 	
 	public String getName()
 	{
-		return null;
+		return name;
 	}
 	
 	public void setName( String nm )

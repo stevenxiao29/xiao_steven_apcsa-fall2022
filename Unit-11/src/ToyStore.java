@@ -10,11 +10,16 @@ public class ToyStore
 
 	public ToyStore()
 	{
+<<<<<<< Updated upstream
 		toyList = new ArrayList<Toy>() ; 
+=======
+		toyList = newArrayList<Toy>();
+>>>>>>> Stashed changes
 	}
 
 	public void loadToys( String toys )
 	{
+<<<<<<< Updated upstream
         String[] strSplit = toys.split(" "); 
         
   		for (int i = 0 ; i<strSplit.length; i++)
@@ -31,12 +36,22 @@ public class ToyStore
   			}
   		}
 
+=======
+		//if toys is not there, add toys, if not null get count 
+		//else set count to get count
+>>>>>>> Stashed changes
 	}
   
   	public Toy getThatToy( String nm )
   	{
+<<<<<<< Updated upstream
   		Toy t = new Toy(nm);
   		return t;
+=======
+  		
+  		
+  		return null;
+>>>>>>> Stashed changes
   	}
   
   	public Toy getMostFrequentToy()
