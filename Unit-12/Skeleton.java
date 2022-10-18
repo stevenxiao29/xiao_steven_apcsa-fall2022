@@ -1,6 +1,3 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
 
 import static java.lang.System.*; 
 
@@ -10,6 +7,8 @@ public class Skeleton implements Monster
 	int size = 0;
 	String nm = "";
 	
+	//add a constructor
+
 	public Skeleton(){
 		size = 0;
 		nm = "";
@@ -17,10 +16,11 @@ public class Skeleton implements Monster
 	}
 	
 	public Skeleton(String a, int b){
-		size = 0;
-		nm = "";
+		size = b;
+		nm = a;
 	}
-	
+	//add code to implement the Monster interface
+
 	public int getHowBig() {
 		return size;
 	}
@@ -51,32 +51,11 @@ public class Skeleton implements Monster
 			return false;
 	}
 	
-	//add a constructor
+	//add a toString
 	public String toString() {
 		
-		String out = "";
-		
-		if (isBigger(null) == true)
-			out += "Monster 1 is smaller than Monster 2";
-		else if (isSmaller(null) == true)
-			out += "Monster 1 is smaller than Monster 2";
-		else 
-			out +="Monster 1 is the same size as Monster 2";
-		
-		out += "\n";
-		
-		
-		if (namesTheSame()= true)
-			out += "Monster one does have the same name as Monster two.";
-		else 
-			out += "Monster one does not have the same name as Monster two.";
-		
-		return out;
-			
-			
+		return  nm + " " +  size;
 		
 	}
-	//add code to implement the Monster interface
 
-	//add a toString
 }
