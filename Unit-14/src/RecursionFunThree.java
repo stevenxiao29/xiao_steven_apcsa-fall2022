@@ -23,15 +23,14 @@ public class RecursionFunThree
 	
 	public static int luckyThrees( long number )
 	{
-		int count = 0;
 		
-		if (number % 10 == 3 || number < 10)
+		if (number < 10)
 			return 0;
 		
 		else if ( number % 10 == 3)
-			count = 1;
+			return luckyThrees(number/10) + 1;
 		
-		return luckyThrees(number/10) + count; 
+		return luckyThrees(number/10); 
 		
 		
 	}
