@@ -11,9 +11,9 @@ public class Grid
 	{
 		grid  = new String[cols][rows];
 		
-		for (String[] row : grid) {
-			for (String s : row) {
-				s = vals[(int)Math.random()*vals.length + 1];
+		for (int i = 0 ; i<cols ; i++) {
+			for (int j = 0; j<rows ; j++) {
+				grid[i][j] = vals[(int)(Math.random()*vals.length)];
 			}
 		}
 		
@@ -22,19 +22,51 @@ public class Grid
 	//find out which of the vals occurs the most
 	public String findMax(String[] vals)
 	{
-		return "nothing yet";
+		int maxCount = 0;
+		int maxIndex = -1;
+		
+		String out = "";		
+		
+		for (int i = 0; i< vals.length ; i++)
+		{
+			out += vals[i] +  " count is " + countVals(vals[i]) + "\n";
+		}
+		
+		for (int i = 0; i< vals.length ; i++)
+		{
+			if (countVals(vals[i]) > maxCount) {
+				maxCount = countVals(vals[i]);
+				maxIndex = i;
+			}
+
+		}
+		
+		out += vals[maxIndex] + " occurs the most";
+		
+		return out;
 	}
 
 	//returns a count of how many times val occurs in the matrix
 	private int countVals( String val )
 	{
-		return 0;
+		int count = 0;
+		
+		for( String[] row : grid )
+    	{
+    	   for( String num : row )
+    	   {
+    		   if (num.equals(val))
+    			   count ++;
+    	   }
+    	}	
+		
+		return count;
 	}
 
 	//display the grid
 	public String toString()
 	{
-		String matrix = "Matrix values: \n";
+		String matrix = "Matrix values: \n\n";
     	
     	for( String[] row : grid )
     	{
