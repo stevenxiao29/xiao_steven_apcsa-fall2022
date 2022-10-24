@@ -5,6 +5,7 @@
 import java.io.File; 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 import static java.lang.System.*;
 
@@ -15,19 +16,28 @@ public class WordRunner
 		Scanner file = new Scanner(new File("words.dat"));
 
 		int size = file.nextInt();
-		file.nextLine();
-		
-		Word test = new Word(file.nextLine());
 		
 		Word[] wordList = new Word[size];
+		file.nextLine();
+//		wordList.add(new Word()) ;
 		
-		for (int i = 0; i < size ; i ++)
+		for (int i = 0 ; i< size ; i++)
 		{
-			wordList[i] = new Word (file.nextLine());
+			wordList[i] = new Word(file.nextLine());
 		}
-			
 		
-
+		Arrays.sort(wordList);
+		//Word w = new Word(file.nextLine());
+		
+		
+		for (int i = 0 ; i< size ; i++)
+		{
+			System.out.println(wordList[i]);	
+		}
+		
+	
+		
+		
 
 
 

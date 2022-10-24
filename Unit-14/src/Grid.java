@@ -41,7 +41,7 @@ public class Grid
 
 		}
 		
-		out += vals[maxIndex] + " occurs the most";
+		out += "\n" + vals[maxIndex] + " occurs the most";
 		
 		return out;
 	}
