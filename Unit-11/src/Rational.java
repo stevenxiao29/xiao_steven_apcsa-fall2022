@@ -120,4 +120,8 @@ class Rational implements Comparable<Rational>
 		return numer + "/" + denom;
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4511d3a1d24576184576767fe1983b06d417ec5e
