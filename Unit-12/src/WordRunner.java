@@ -36,15 +36,6 @@ public class WordRunner
 		}
 		
 	
-		
-		
-
-
-
-
-
-
-
 
 	}
 }
