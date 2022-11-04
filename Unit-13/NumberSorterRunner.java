@@ -1,7 +1,3 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
-
 import java.util.Arrays;
 import static java.lang.System.*; 
 
