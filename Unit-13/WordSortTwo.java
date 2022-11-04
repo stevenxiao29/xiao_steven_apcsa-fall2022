@@ -12,21 +12,24 @@ public class WordSortTwo
 
 	public WordSortTwo(String sentence)
 	{
-		//sentence.useDelimiter(" ");
+		wordRay = sentence.split(" ");
+		sort();
 	}
 
 	public void sort()
 	{
-		for (int i=1; i< wordRay.length; i++)
-		   {
-		      String word = wordRay[i];
-		      int j=i;
-		      while(j>0&&word.compareTo(wordRay[j-1])==-1){         
-		    	  wordRay[j]=wordRay[j-1];
-		         j--;
-		      }
-		      wordRay[j]=word;
-		   }
+		Arrays.sort(wordRay);
+		
+//		for (int i=1; i< wordRay.length; i++)
+//		   {
+//		      String word = wordRay[i];
+//		      int j=i;
+//		      while(j>0&&word.compareTo(wordRay[j-1])==-1){         
+//		    	  wordRay[j]=wordRay[j-1];
+//		         j--;
+//		      }
+//		      wordRay[j]=word;
+//		   }
 
 	}
 
