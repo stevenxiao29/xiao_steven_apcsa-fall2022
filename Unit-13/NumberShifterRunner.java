@@ -13,6 +13,11 @@ public class NumberShifterRunner
 	public static void main( String args[] ) throws IOException
 	{
 		//add test cases
+		NumberShifter test = new NumberShifter(10);
+		System.out.println(test);
+		
+		
+		
 	}
 }
 
