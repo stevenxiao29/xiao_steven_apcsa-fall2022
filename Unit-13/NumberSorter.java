@@ -1,6 +1,3 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
 
 import java.util.Arrays; 
 import java.util.Scanner;
@@ -28,7 +25,7 @@ public class NumberSorter
 	public static int[] getSortedDigitArray(int number)
 	{
 		int len = getNumDigits(number);
-		int[] arr = new int[len]
+		int[] arr = new int[len];
 		
 		for (int i = 0; i<len; i++) {
 			arr[len-1-i] = number%10;
@@ -40,7 +37,7 @@ public class NumberSorter
 		      int val = arr[i];
 		      int j=i;
 		      while(j>0&&val<arr[j-1]){         
-		         stuff[j]=arr[j-1];
+		         arr[j]=arr[j-1];
 		         j--;
 		      }
 		      arr[j]=val;
