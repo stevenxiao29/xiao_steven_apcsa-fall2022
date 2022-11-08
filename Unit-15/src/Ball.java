@@ -20,16 +20,39 @@ public class Ball extends Block
 	//add the other Ball constructors
 	
 	
+	public Ball(int x, int y)
+	{
+		xSpeed = x;
+		ySpeed = y;
+	}
+
+	@Override
+	public void setXSpeed(int x) {
+		// TODO Auto-generated method stub
+		xSpeed = x;
+
+	}
+
+	@Override
+	public void setYSpeed(int y) {
+		// TODO Auto-generated method stub
+		ySpeed = y;
+
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	public int getXSpeed() {
+		// TODO Auto-generated method stub
+		return xSpeed;
+	}
+
+	public int getYSpeed() {
+		// TODO Auto-generated method stub
+		return ySpeed;
+	}   
+
+
+
 	   
    //add the set methods
    
@@ -52,7 +75,8 @@ public class Ball extends Block
 
 
 		return false;
-	}   
+	}
+
 
    //add the get methods
 

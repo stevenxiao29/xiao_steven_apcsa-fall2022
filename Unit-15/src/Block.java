@@ -23,15 +23,23 @@ public class Block implements Locatable
 	//add other Block constructors - x , y , width, height, color
 	
 	
+	public Block(int x, int y)
+	{
+		xPos = x;
+		yPos = y;
+	}
 	
 	
+	public Block(int x, int y, int w, int h)
+	{
+		xPos = x;
+		yPos = y;
+		width = w;
+		height = h;
+	}
+
 	
-	
-	
-	
-	
-	
-	
+
 	
 	
    //add the other set methods
@@ -63,6 +71,48 @@ public class Block implements Locatable
 
 
 		return false;
+	}
+
+	@Override
+	public void setPos(int x, int y) {
+		xPos = x;
+		yPos = y;
+	}
+
+	@Override
+	public void setX(int x) {
+		// TODO Auto-generated method stub
+		xPos = x;
+
+	}
+
+	@Override
+	public void setY(int y) {
+		// TODO Auto-generated method stub
+		yPos = y;
+
+	}
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return xPos;
+	}
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return yPos;
+	}
+
+	public void setYSpeed(int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setXSpeed(int x) {
+		// TODO Auto-generated method stub
+		
 	}   
 
    //add the other get methods
