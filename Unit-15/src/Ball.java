@@ -17,14 +17,41 @@ public class Ball extends Block
 	//add the other Ball constructors
 	
 	
-	
-	
 	public Ball(int x, int y)
 	{
 		xSpeed = x;
 		ySpeed = y;
 	}
 
+
+	   public Ball(int x, int y, int s)
+	   {
+		   xPos	= x;
+		   yPos = y;
+		   speed = s;
+	   }
+
+	   public Ball(int x, int y, int s, int wid, int ht)
+	   {
+		   xPos	= x;
+		   yPos = y;
+		   width = wid;
+		   height = ht;
+		   speed = s;
+	   }
+
+	   public Ball(int x, int y, int wid, int ht, Color col, int s)
+	   {	
+	   	   super(x, y, w, h, c)
+		   xPos	= x;
+		   yPos = y;
+		   width = wid;
+		   height = ht;
+		   color = col;
+		   speed = s;
+	   }
+
+	
 	public void setXSpeed(int x) {
 		// TODO Auto-generated method stub
 		xSpeed = x;
