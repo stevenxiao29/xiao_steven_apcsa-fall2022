@@ -56,7 +56,9 @@ public class Paddle extends Block
 	   color = col;
 	   speed = s;
    }
-
+   public void setSpeed(int s) {
+	   speed = s;
+   }
 
    public boolean equals(Object obj)
 	{
@@ -74,21 +76,27 @@ public class Paddle extends Block
 	   
 	    draw(window,Color.white);
 
-	    setY(getY()-speed);
-	    
-	    draw(window, Color.black);
+	    super.setY(getY()+getSpeed());
+	
+	    draw(window);
+
    }
 
    public void moveDownAndDraw(Graphics window)
    {
 	    draw(window,Color.white);
 
-	    setY(getY()+speed);
+	    super.setY(getY()-getSpeed());
 	    
-	    draw(window, Color.black);
+	    draw(window);
    }
 
    //add get methods
+   
+   public int getSpeed() {
+	return speed;
+   }
+   
    public String toString()
    {
 	   return "xPos: " + xPos + "\nyPos: " + yPos + "\nwidth: " + width + "\nheight: " + height + "\nspeed: " + speed + "\n";  
