@@ -22,19 +22,27 @@ public class Block implements Locatable
 	
 	public Block(int x, int y)
 	{
-		xPos = x;
-		yPos = y;
+		setX(x);
+		setY(y);
+		color = Color.black;
 	}
 	
 	
 	public Block(int x, int y, int w, int h)
 	{
-		xPos = x;
-		yPos = y;
-		width = w;
-		height = h;
+		setX(x);
+		setY(y);
+		setWidth(w);
+		setHeight(h);
+		color = Color.black;
 	}
-
+	
+	public Block(int x, int y, int w, int h, Color col) {
+		setPos(x,y);
+		setWidth(w);
+		setHeight(h);
+		setColor(col);
+	}
 	
 
 	
@@ -44,21 +52,21 @@ public class Block implements Locatable
 
    public void setColor(Color col)
    {
-
+	color = col;
 
    }
 
    public void draw(Graphics window)
    {
    	//uncomment after you write the set and get methods
-      //window.setColor(color);
-      //window.fillRect(getX(), getY(), getWidth(), getHeight());
+      window.setColor(color);
+      window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
 
    public void draw(Graphics window, Color col)
    {
-
-
+	 window.setColor(col);
+	 window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
    
 	public boolean equals(Object obj)
