@@ -1,6 +1,3 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -25,8 +22,12 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	public Pong()
 	{
 		//set up all variables related to the game
-
+		  
+		  leftPaddle = new Paddle(10, 0, 10, 200, 6);
+		  
+		  rightPaddle = new Paddle(530, 100, 10, 200, 6);
 		
+		  ball = new Ball(200,200);
 
 
 		keys = new boolean[4];
@@ -70,36 +71,29 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.setYSpeed(0);
 		}
 
+		if((ball.getY()<0 || ball.getY()>570))
+	    {
+	      ball.setYSpeed(-ball.getYSpeed());
+	    }
+
 		
-		//see if the ball hits the top or bottom wall 
-
-
-
-
 		//see if the ball hits the left paddle
-		
-		
+		//why is it <= instead of ==
+		if (ball.getX() == leftPaddle.getX() && ((leftPaddle.getY() <= ball.getY()) && (ball.getY() <= leftPaddle.getY() + leftPaddle.getHeight())))
+		{
+	    	ball.setXSpeed(-ball.getXSpeed());
+
+		}
 		
 		//see if the ball hits the right paddle
-		
-		
-		
 
+		if (ball.getX() == rightPaddle.getX() && ((rightPaddle.getY() <= ball.getY()) && (ball.getY() <= rightPaddle.getY() + rightPaddle.getHeight())))
+		{
+	    	ball.setXSpeed(-ball.getXSpeed());
 
+		}
+		
 		//see if the paddles need to be moved
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		

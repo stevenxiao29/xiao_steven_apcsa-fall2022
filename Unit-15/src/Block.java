@@ -1,6 +1,3 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -25,19 +22,27 @@ public class Block implements Locatable
 	
 	public Block(int x, int y)
 	{
-		xPos = x;
-		yPos = y;
+		setX(x);
+		setY(y);
+		color = Color.black;
 	}
 	
 	
 	public Block(int x, int y, int w, int h)
 	{
-		xPos = x;
-		yPos = y;
-		width = w;
-		height = h;
+		setX(x);
+		setY(y);
+		setWidth(w);
+		setHeight(h);
+		color = Color.black;
 	}
-
+	
+	public Block(int x, int y, int w, int h, Color col) {
+		setPos(x,y);
+		setWidth(w);
+		setHeight(h);
+		setColor(col);
+	}
 	
 
 	
@@ -47,30 +52,31 @@ public class Block implements Locatable
 
    public void setColor(Color col)
    {
-
+	color = col;
 
    }
 
    public void draw(Graphics window)
    {
    	//uncomment after you write the set and get methods
-      //window.setColor(color);
-      //window.fillRect(getX(), getY(), getWidth(), getHeight());
+      window.setColor(color);
+      window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
 
    public void draw(Graphics window, Color col)
    {
-
-
+	 window.setColor(col);
+	 window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
    
 	public boolean equals(Object obj)
 	{
 
-
-
-
-		return false;
+		return this.height == ((Block)obj).height && 
+				this.xPos == ((Block)obj).xPos && 
+				this.yPos == ((Block)obj).yPos &&
+				this.width == ((Block)obj).width &&
+				this.color == ((Block)obj).getColor();
 	}
 
 	@Override
@@ -94,26 +100,41 @@ public class Block implements Locatable
 	}
 
 	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
+	public int getX()
+	{
 		return xPos;
 	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
+	
+	public int getY()
+	{
 		return yPos;
 	}
 
-	public void setYSpeed(int y) {
-		// TODO Auto-generated method stub
-		
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public Color getColor()
+	{
+		return color;
 	}
 
-	public void setXSpeed(int x) {
-		// TODO Auto-generated method stub
-		
-	}   
+	
+	public void setWidth(int wid)
+	{
+		width = wid;
+	}
+	
+	public void setHeight(int hei)
+	{
+		height = hei;
+	}
 
    //add the other get methods
     
