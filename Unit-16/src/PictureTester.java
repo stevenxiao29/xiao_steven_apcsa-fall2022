@@ -11,7 +11,7 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
@@ -19,7 +19,7 @@ public class PictureTester
   
   public static void testKeepOnlyBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
     beach.explore();
     beach.keepOnlyBlue();
     beach.explore();
@@ -27,14 +27,14 @@ public class PictureTester
   
   public static void testNegate()
   {
-	    Picture beach = new Picture("beach.jpg");
+	    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
 	    beach.explore();
 	    beach.negate();
 	    beach.explore();
   }
   public static void testGrayscale()
   {
-	    Picture beach = new Picture("beach.jpg");
+	    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
 	    beach.explore();
 	    beach.grayscale();
 	    beach.explore();
@@ -43,7 +43,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -51,21 +51,21 @@ public class PictureTester
   
   public static void testMirrorVerticalRightToLeft()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVerticalRightToLeft();
     caterpillar.explore();
   }
   public static void testMirrorHorizontal()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\caterpillar.jpg");
     caterpillar.explore();
   //  caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
   public static void testMirrorHorizontalBotToTop()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\caterpillar.jpg");
     caterpillar.explore();
    // caterpillar.mirrorHorizontalBotToTop();
     caterpillar.explore();
@@ -75,7 +75,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -108,12 +108,12 @@ public class PictureTester
 //    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
-//    testGrayscale();
+    //testNegate();
+    //testGrayscale();
 //	  testMirrorVerticalRightToLeft();
     //testFixUnderwater();
     //testMirrorVertical();
-	 //testMirrorHorizontal();
+	// testMirrorHorizontal();
 	  //testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
