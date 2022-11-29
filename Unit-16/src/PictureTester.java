@@ -81,6 +81,14 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testMirrorArms()
+  {
+    Picture temple = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\snowman.jpg");
+    temple.explore();
+    temple.mirrorArms();
+    temple.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -113,10 +121,11 @@ public class PictureTester
 //	  testMirrorVerticalRightToLeft();
     //testFixUnderwater();
     //testMirrorVertical();
-	// testMirrorHorizontal();
+	  //testMirrorVerticalRightToLeft();
+	 testMirrorHorizontal();
 	  //testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    //testMirrorArms();
+   // testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
