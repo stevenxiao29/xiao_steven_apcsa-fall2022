@@ -658,7 +658,9 @@ public class SimplePicture implements DigitalPicture
   */
  public boolean write(String fileName)
  {
-	 String file = "src\\Pic\\images\\" + fileName;
+	// String file = "src\\Pic\\images\\" + fileName;
+	 String file = fileName;
+
      try {
          this.writeOrFail(file);
          return true;

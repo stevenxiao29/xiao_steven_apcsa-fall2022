@@ -60,17 +60,23 @@ public class PictureTester
   {
     Picture caterpillar = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\caterpillar.jpg");
     caterpillar.explore();
-  //  caterpillar.mirrorHorizontal();
+    caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
   public static void testMirrorHorizontalBotToTop()
   {
     Picture caterpillar = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\caterpillar.jpg");
     caterpillar.explore();
-   // caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.mirrorHorizontalBotToTop();
     caterpillar.explore();
   }
- 
+  public static void testMirrorDiagonal()
+  {
+    Picture beach = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
+  }
   
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
@@ -88,12 +94,25 @@ public class PictureTester
     temple.mirrorArms();
     temple.explore();
   }
-  
+  public static void testMirrorGull()
+  {
+    Picture temple = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\seagull.jpg");
+    temple.explore();
+    temple.mirrorGull();
+    temple.explore();
+  }
+  //640x480.jpg
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\640x480.jpg");
     canvas.createCollage();
+    canvas.explore();
+  }
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\640x480.jpg");
+    canvas.myCollage();
     canvas.explore();
   }
   
@@ -104,6 +123,14 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
+  
+  private static void testFixUnderwater() {
+		// TODO Auto-generated method stub
+	    Picture water = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\water.jpg");
+	    water.explore();
+	    water.fixUnderwater();
+	    water.explore();
+	}
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -119,16 +146,18 @@ public class PictureTester
     //testNegate();
     //testGrayscale();
 //	  testMirrorVerticalRightToLeft();
-    //testFixUnderwater();
+   // testFixUnderwater();
     //testMirrorVertical();
 	  //testMirrorVerticalRightToLeft();
-	 testMirrorHorizontal();
-	  //testMirrorHorizontalBotToTop();
+//	 testMirrorHorizontal();
+	//  testMirrorHorizontalBotToTop();
+	  //testMirrorDiagonal();
     //testMirrorTemple();
    // testMirrorArms();
-    //testMirrorGull();
+  //  testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+ //   testCollage();
+	  testMyCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
@@ -139,4 +168,6 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
   }
+
+
 }
