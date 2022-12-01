@@ -25,6 +25,22 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testKeepOnlyRed()
+  {
+    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
+    beach.explore();
+    beach.keepOnlyRed();
+    beach.explore();
+  }
+  
+  public static void testKeepOnlyGreen()
+  {
+    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
+    beach.explore();
+    beach.keepOnlyGreen();
+    beach.explore();
+  }
+  
   public static void testNegate()
   {
 	    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
@@ -119,8 +135,15 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("C:\\\\\\\\Users\\\\\\\\xiaos3073\\\\\\\\Desktop\\\\\\\\AP CSA Fall 2022\\\\\\\\xiao_steven_apcsa-fall2022\\\\\\\\Unit-16\\\\\\\\src\\\\\\\\images\\\\\\\\swan.jpg");
     swan.edgeDetection(10);
+    swan.explore();
+  }
+  
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("C:\\\\\\\\Users\\\\\\\\xiaos3073\\\\\\\\Desktop\\\\\\\\AP CSA Fall 2022\\\\\\\\xiao_steven_apcsa-fall2022\\\\\\\\Unit-16\\\\\\\\src\\\\\\\\images\\\\\\\\swan.jpg");
+    swan.edgeDetection2(10);
     swan.explore();
   }
   
@@ -139,28 +162,27 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-//    testZeroBlue();
-//    testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-//	  testMirrorVerticalRightToLeft();
-   // testFixUnderwater();
-    //testMirrorVertical();
-	  //testMirrorVerticalRightToLeft();
-//	 testMirrorHorizontal();
-	//  testMirrorHorizontalBotToTop();
-	  //testMirrorDiagonal();
-    //testMirrorTemple();
-   // testMirrorArms();
-  //  testMirrorGull();
-    //testMirrorDiagonal();
- //   testCollage();
+    testZeroBlue();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
+    testNegate();
+    testGrayscale();
+	  testMirrorVerticalRightToLeft();
+    testFixUnderwater();
+    testMirrorVertical();
+	  testMirrorHorizontal();
+	  testMirrorHorizontalBotToTop();
+	  testMirrorDiagonal();
+    testMirrorTemple();
+    testMirrorArms();
+    testMirrorGull();
+    testMirrorDiagonal();
+    testCollage();
 	  testMyCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+//    testCopy();
+    testEdgeDetection();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

@@ -111,6 +111,32 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void keepOnlyRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  
+  public void keepOnlyGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setBlue(0);
+      }
+    }
+  }
+  
   public void negate()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -118,9 +144,13 @@ public class Picture extends SimplePicture
     {
       for (Pixel pixelObj : rowArray)
       {
-        pixelObj.setBlue(pixelObj.getBlue()-255);
-        pixelObj.setRed(pixelObj.getRed()-255);
-        pixelObj.setGreen(pixelObj.getGreen()-255);
+//        pixelObj.setBlue(pixelObj.getBlue()-255);
+//        pixelObj.setRed(pixelObj.getRed()-255);
+//        pixelObj.setGreen(pixelObj.getGreen()-255);
+    	  
+    	  pixelObj.setRed(255-pixelObj.getRed());
+    	  pixelObj.setGreen(255-pixelObj.getGreen());
+    	  pixelObj.setBlue(255-pixelObj.getBlue());
       }
     }
   }
@@ -407,20 +437,24 @@ public class Picture extends SimplePicture
     Picture beach = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\beach.jpg");
     Picture seagull = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\seagull.jpg");
     Picture flower1 = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\flower1.jpg");
-    this.copy(seagull,0,0);
+    Picture robot = new Picture("C:\\\\Users\\\\xiaos3073\\\\Desktop\\\\AP CSA Fall 2022\\\\xiao_steven_apcsa-fall2022\\\\Unit-16\\\\src\\\\images\\\\robot.jpg");
+    this.copy(seagull,230,225, 350,350,0,400);
     this.copy(flower1,100,0);
-    this.copy(beach,200,0);
+   // this.copy(beach,200,0);
     Picture flowerNoBlue = new Picture(seagull);
-    flowerNoBlue.zeroBlue();
+    flowerNoBlue.negate();
     this.copy(flowerNoBlue,300,0);
     this.copy(flower1,400,0);
-    Picture seagullNegate = new Picture(seagull);
-    seagullNegate.negate();
-    this.copy(seagullNegate,500,0);
-    Picture beachGrey = new Picture(beach);
-    beachGrey.negate();
-    this.copy(beachGrey,500,0);
-    this.mirrorHorizontalBotToTop();
+    Picture robotNegate = new Picture(robot);
+    robotNegate.grayscale();
+    this.copy(robotNegate,0,200);
+    Picture robotKeepOnlyBlue = new Picture(robot);
+    robotKeepOnlyBlue.keepOnlyBlue();
+    this.copy(robotKeepOnlyBlue,0,300);
+    //Picture beachGrey = new Picture(beach);
+    //beachGrey.keepOnlyBlue();
+    //this.copy(beachGrey,500,0);
+    this.mirrorHorizontal();
     this.write("C:\\Users\\xiaos3073\\Desktop\\temp\\collage.jpg");
   }
   
@@ -451,6 +485,49 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void edgeDetection2(int edgeDist)
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length-1; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+        rightColor = rightPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > 
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+    
+    Pixel[][] copyPixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel botPixel = null;
+    Color botColor = null;
+    for (int row = 0; 
+    		row < copyPixels.length-1; row++)
+    {
+	    for (int col = 0; col < 
+	    		copyPixels[0].length; col++)
+	    {
+		    topPixel = copyPixels[row][col];
+		    botPixel = copyPixels[row+1][col];
+		    botColor = botPixel.getColor();
+		    if (topPixel.colorDistance(botColor) > edgeDist)
+		    {
+			    pixels[row][col].setColor(Color.BLACK);
+		    }
+	    }
+    }
+    
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
