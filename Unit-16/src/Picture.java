@@ -537,23 +537,71 @@ public class Picture extends SimplePicture
 	  Pixel currPixel = null;
 	  Pixel messagePixel = null;
 	  int count = 0;
+	  int key = this.getHeight()/10 * this.getWidth()/10 % 5  + 3;
+
 	  for (int row = 0; row < this.getHeight(); row++)
 	  {
 		  for (int col = 0; col < this.getWidth(); col++)
 		  {
 			  // if the current pixel red is odd make it even
 			  currPixel = currPixels[row][col];
-			  if (currPixel.getRed() % 2 == 1)
-				  currPixel.setRed(currPixel.getRed() - 1);
+			  if (Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0) {
+				  
+				  if(currPixel.getRed() >= 100)
+					  while(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0)
+						  currPixel.setRed(currPixel.getRed() - 1);
+				  if(currPixel.getRed() <= 99)
+					  while(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0)
+						  currPixel.setRed(currPixel.getRed() + 1);
+				  
+			  }
+				  count++;
 			  messagePixel = messagePixels[row][col];
 			  if (messagePixel.colorDistance(Color.BLACK) < 50)
 			  {
-				  currPixel.setRed(currPixel.getRed() + 1);
+				  if(currPixel.getBlue() >= 100)
+					  currPixel.setBlue(currPixel.getBlue() - 1);
+				  if(currPixel.getBlue() < 99)
+					  currPixel.setBlue(currPixel.getBlue() + 1);
+			  }
+		  }
+	  }
+	  System.out.println(count);
+  }
+  
+
+public Picture decode()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+	  
+	  
+	  
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  
+	  int key = this.getHeight()/10 * this.getWidth()/10 % 5  + 3;
+	  
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  System.out.println(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0);
+			  if (Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0 )
+			  {
+				  messagePixel.setColor(Color.BLACK);
 				  count++;
 			  }
 		  }
 	  }
 	  System.out.println(count);
+	  return messagePicture;
   }
   
   
@@ -562,10 +610,17 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("C:\\Users\\xiaos3073\\Desktop\\AP CSA Fall 2022\\xiao_steven_apcsa-fall2022\\Unit-16\\src\\images\\beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    Picture apple = new Picture("src\\images\\apple_icon.jpg");
+    Picture msg = new Picture("src\\images\\msg.jpg");
+    msg.explore();
+    //apple.explore();
+
+    apple.encode(msg);
+    apple.explore();
+    Picture decoded = apple.decode();
+    decoded.explore();
+
+
   }
   
 } // this } is the end of class Picture, put all new methods before this
