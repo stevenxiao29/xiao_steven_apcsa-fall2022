@@ -721,5 +721,5 @@ public Picture decode()
 
 
   }
-  
+  //test
 } // this } is the end of class Picture, put all new methods before this
