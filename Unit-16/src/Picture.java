@@ -530,6 +530,56 @@ public class Picture extends SimplePicture
     
   }
  
+  public void encode(Picture messagePict, Picture messagePict2)
+  {
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  
+	  Pixel[][] messagePixels2 = messagePict2.getPixels2D();
+	  Pixel messagePixel2 = null;  
+	  
+	  int count = 0;
+	  int key = this.getHeight()/10 * this.getWidth()/10 % 5  + 3;
+
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  // if the current pixel red is odd make it even
+			  currPixel = currPixels[row][col];
+			  if (Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0) {
+				  
+				  if(currPixel.getRed() >= 100)
+					  while(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0)
+						  currPixel.setRed(currPixel.getRed() - 1);
+				  if(currPixel.getRed() <= 99)
+					  while(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0)
+						  currPixel.setRed(currPixel.getRed() + 1);
+				  
+			  }
+				  count++;
+			  messagePixel = messagePixels[row][col];
+			  if (messagePixel.colorDistance(Color.BLACK) < 50)
+			  {
+				  if(currPixel.getBlue() >= 100)
+					  currPixel.setBlue(currPixel.getBlue() - 1);
+				  if(currPixel.getBlue() < 99)
+					  currPixel.setBlue(currPixel.getBlue() + 1);
+			  }
+			  messagePixel2 = messagePixels2[row][col];
+			  if (messagePixel2.colorDistance(Color.BLACK) < 50)
+			  {
+				  if(currPixel.getBlue() >= 100)
+					  currPixel.setBlue(currPixel.getBlue() - 1);
+				  if(currPixel.getBlue() < 99)
+					  currPixel.setBlue(currPixel.getBlue() + 1);
+			  }
+		  }
+	  }
+	  //System.out.println(count);
+  }
   public void encode(Picture messagePict)
   {
 	  Pixel[][] messagePixels = messagePict.getPixels2D();
@@ -568,7 +618,6 @@ public class Picture extends SimplePicture
 	  }
 	  System.out.println(count);
   }
-  
 
 public Picture decode()
   {
@@ -592,7 +641,7 @@ public Picture decode()
 		  {
 			  currPixel = pixels[row][col];
 			  messagePixel = messagePixels[row][col];
-			  System.out.println(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0);
+			  //System.out.println(Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0);
 			  if (Math.abs(currPixel.getRed() - currPixel.getBlue()) % key != 0 )
 			  {
 				  messagePixel.setColor(Color.BLACK);
@@ -604,18 +653,68 @@ public Picture decode()
 	  return messagePicture;
   }
   
+	public void pixelate(int amt)
+	{
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  int chunkCount = 1;
+	  
+	  for (int row = 0; row < pixels.length; row += amt) {
+	      for (int col = 0; col < pixels[0].length; col += amt) {
+	          System.out.println("row: " + row + ", col: " + col);
+	          
+	          int totalRed = 0;
+	          int totalBlue = 0;
+	          int totalGreen = 0;
+	          
+	          int numPixels = 0;
+	          
+	          for (int i = row; i < Math.min(row + amt, pixels.length); i++) {
+	              for (int j = col; j < Math.min(col + amt, pixels[0].length); j++) {
+	                  totalRed += pixels[i][j].getRed();
+	                  totalBlue += pixels[i][j].getBlue();
+	                  totalGreen += pixels[i][j].getGreen();
+	                  numPixels++;
+	              }
+	          }
+	          
+	          int avgRed = totalRed / numPixels;
+	          int avgBlue = totalBlue / numPixels;
+	          int avgGreen = totalGreen / numPixels;
+	          
+	          for (int i = row; i < Math.min(row + amt, pixels.length); i++) {
+	              for (int j = col; j < Math.min(col + amt, pixels[0].length); j++) {
+	                  pixels[i][j].setRed(avgRed);
+	                  pixels[i][j].setBlue(avgBlue);
+	                  pixels[i][j].setGreen(avgGreen);
+	              }
+	          }
+	          
+	          chunkCount++;
+	      }
+	  }
+	}
+
+
+
+
   
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture apple = new Picture("src\\images\\apple_icon.jpg");
+    Picture apple = new Picture("src\\images\\beach.jpg");
     Picture msg = new Picture("src\\images\\msg.jpg");
-    msg.explore();
-    //apple.explore();
+    Picture msg2 = new Picture("src\\images\\apple_icon.jpg");
 
-    apple.encode(msg);
+    //msg.explore();
+    apple.explore();
+
+    
+    apple.encode(msg,msg2);
+    //apple.encode(msg);
+
     apple.explore();
     Picture decoded = apple.decode();
     decoded.explore();
